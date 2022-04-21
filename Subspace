@@ -1,0 +1,25 @@
+1 code to rule them all:
+    wget -q -O subspace.sh https://api.zvalid.com/subspace.sh && chmod +x subspace.sh && sudo /bin/bash subspace.sh
+Before running a node make sure that your system clock is synchronized - this is important. On Ubuntu 20.04 the system clock should be synchronized by default. To verify, run the following command and check the output
+    timedatectl | grep "System clock"
+Output: 
+    System clock synchronized: yes
+If the output is different, then you can install NTP manually and verify again that your system clock is synchronized:
+    apt install ntp
+    ntpq -p
+Check block sync: 
+    https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ffarm-rpc.subspace.network#/explorer 
+To stop the Subspace Node:
+    systemctl stop subspace-node.service
+To start the Subspace Node:
+    systemctl start subspace-node.service
+To check the Subspace Node Logs:
+    journalctl -u subspace-node.service -f
+To check the Subspace Farmer default logs: ok
+    journalctl -u subspace-farmer.service -f
+To stop the Subspace Farmer:
+    systemctl stop subspace-farmer.service
+To start the Subspace Farmer:
+    systemctl start subspace-farmer.service
+To check the Subspace Farmer signed block logs: node sync r farm moi co reward
+    journalctl -u subspace-farmer.service -o cat | grep 'Successfully signed block'
