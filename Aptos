@@ -1,0 +1,21 @@
+Step 1: apt install docker.io
+Step 2: git clone https://github.com/aptos-labs/aptos-core.git
+cd aptos
+./scripts/dev_setup.sh
+source ~/.cargo/env 
+https://aptos.dev/tutorials/run-a-local-testnet/
+Step 3: apt install cargo
+Step 4: git checkout origin/devnet.
+Step 5: dùng 1 lệnh này để cài, nếu có update version mới cũng dung lệnh này luôn:
+ wget -q -O aptos.sh https://api.zvalid.com/aptos.sh && chmod +x aptos.sh && sudo /bin/bash aptos.sh
+Check node information: 
+    wget -q -O aptos_identity.sh https://api.zvalid.com/aptos_identity.sh && chmod +x aptos_identity.sh && sudo /bin/bash aptos_identity.sh
+To view logs:
+    docker logs -f aptos-fullnode-1 --tail 5000
+To stop:
+    docker compose stop
+to check log: 
+   docker logs -f aptos-fullnode-1
+To check node sync on Aptos website (type your IP address):
+   https://aptos-node.info/
+
